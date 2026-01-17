@@ -1,0 +1,151 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* THEME */
+:root {
+    --bg1: #667eea;
+    --bg2: #764ba2;
+    --glass: rgba(255, 255, 255, 0.15);
+    --border: rgba(255, 255, 255, 0.3);
+    --text: #ffffff;
+}
+
+body.dark {
+    --bg1: #0f2027;
+    --bg2: #203a43;
+    --glass: rgba(255, 255, 255, 0.08);
+    --border: rgba(255, 255, 255, 0.2);
+}
+
+/* BACKGROUND */
+body {
+    min-height: 100vh;
+    background: linear-gradient(-45deg, var(--bg1), var(--bg2), #6a11cb, #2575fc);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+    overflow: hidden;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* BLOBS */
+.blob {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: float 12s infinite alternate ease-in-out;
+}
+
+.blob:nth-child(1) { top: 10%; left: 10%; }
+.blob:nth-child(2) { bottom: 10%; right: 10%; animation-duration: 15s; }
+
+@keyframes float {
+    from { transform: translateY(0); }
+    to { transform: translateY(-80px); }
+}
+
+/* LAYOUT */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 25px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    padding: 30px;
+    border-radius: 20px;
+    background: var(--glass);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.card h2 {
+    font-size: 1.7rem;
+    margin-bottom: 12px;
+}
+
+.card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* SKILLS */
+.skills {
+    margin-top: 15px;
+}
+
+.skills span {
+    display: inline-block;
+    padding: 6px 14px;
+    margin: 6px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.25);
+    font-size: 0.85rem;
+}
+
+/* LINK BUTTON */
+.card a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 22px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.9rem;
+    background: rgba(255,255,255,0.25);
+    border: 1px solid var(--border);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.card a:hover {
+    background: rgba(255,255,255,0.4);
+    transform: translateY(-2px);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+}
