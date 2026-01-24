@@ -32,7 +32,7 @@ body {
     align-items: center;
     justify-content: center;
     color: var(--text);
-    overflow: hidden;
+    overflow: auto;
 }
 
 @keyframes gradientMove {
@@ -147,5 +147,8 @@ h1 {
 @media (max-width: 600px) {
     h1 {
         font-size: 2.2rem;
+    }
+    .container{
+        margin: 4rem 4rem; 
     }
 }
